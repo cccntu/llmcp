@@ -1,0 +1,67 @@
+[project]
+name = "llmcp"
+version = "0.1.1"
+description = "A minimal CLI for interacting with LLMs via LiteLLM and MCP"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    {name = "Jonathan Chang", email = "31893406+cccntu@users.noreply.github.com"},
+]
+urls = {repository = "https://github.com/cccntu/llmcp"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "litellm>=1.61.9",
+    "mcp>=1.6.0",
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.1",
+    "ruff>=0.0.292",
+]
+
+[project.scripts]
+llmcp = "llmcp.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/llmcp"]
+
+[tool.setuptools]
+packages = ["llmcp"]
+package-dir = {"" = "src"}
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: marks tests as integration tests that require API access (deselect with '-m \"not integration\"')",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.format]
+indent-style = "space"
+quote-style = "double"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "F",  # pyflakes
+    "I",  # isort
+]
