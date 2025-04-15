@@ -2,16 +2,6 @@
 
 A minimal CLI for interacting with LLMs via LiteLLM and MCP.
 
-## Installation
-
-```bash
-# Install with pip
-pip install llmcp
-
-# Or with uv (recommended)
-uv pip install llmcp
-```
-
 ## Quickstart
 
 ```bash
