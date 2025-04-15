@@ -15,24 +15,26 @@ uv pip install llmcp
 ## Quickstart
 
 ```bash
-# Install (recommended)
+# Install and test locally (recommended)
 uv pip install llmcp
 
 # Search for available models
 llmcp search 'gemini-2*'
 
 # Serve mcp server
-llmcp serve gemini-2.5-pro-exp-03-25
+# llmcp serve gemini-2.5-pro-exp-03-25
 
-# Test calling a model via mcp server (make sure your API key is set)
+# Test start a mcp server and call it
 llmcp test gpt-4o-mini "What is the capital of France?"
+# Example output:
+# Response:
+# The capital of France is Paris.
+
+# Add a gemini:ask tool to Claude Code
+claude mcp add gemini uvx llmcp serve gemini-2.5-pro-exp-03-25
 ```
 
-Example output:
-```
-Response:
-The capital of France is Paris.
-```
+##
 
 ## MCP details:
 
